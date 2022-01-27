@@ -1,3 +1,6 @@
+var wordEl = document.querySelector("#word");
+var definitionEl = document.querySelector("#definition");
+
 // fetch random word
 var getRandomWord = function () {
   var apiUrl = "https://random-words-api.vercel.app/word";
@@ -6,12 +9,19 @@ var getRandomWord = function () {
   fetch(apiUrl)
     .then(function (response) {
       response.json().then(function (data) {
-        console.log(data);
+        displayWord(data);
       });
     })
     .catch(function (error) {
       alert("Unable to connect to Word Generator");
     });
+};
+
+// display word and definition
+var displayWord = function (data) {
+  var word = data[0].word;
+
+  wordEl.textContent = word;
 };
 
 // fetch happy gif
