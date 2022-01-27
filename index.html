@@ -9,7 +9,7 @@
   <body>
     <div>
       <h1>Hangman</h1>
-      <p>
+      <p class="hide">
         This is a game of Hangman. Players will be given a randomly generated word. The 
         player will be given 7 chances to guess the correct letter from the letter buttons 
         below the word box. Each correct letter will be placed on the screen, each wrong
@@ -18,9 +18,11 @@
         is over and the player will be given a final score to be logged.
       </p>
     </div>
-    <div></div>
+    <div id="playarea"></div>
     <div>
       <p class="hide" id="word" ></p>
+    </div>
+    <div>
       <textarea id="definition" ></textarea>
     </div>
     <div id="buttons"></div>
