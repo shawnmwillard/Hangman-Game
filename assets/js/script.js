@@ -103,4 +103,4 @@ function getButton() {
 getRandomWord();
 getHappyGif();
 getSadGif();
-
+getButton();
