@@ -1,6 +1,9 @@
+// insert variables for alphabet
+var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's','t', 'u', 'v', 'w', 'x', 'y', 'z'];
 var wordEl = document.querySelector("#word");
 var definitionEl = document.querySelector("#definition");
 var playArea = document.querySelector("#playarea");
+var alphaList = document.getElementById("alphabet-list");
 
 // fetch random word and definition
 var getRandomWord = function () {
@@ -81,7 +84,23 @@ var getSadGif = function () {
       alert("Unable to connect to Giphy");
     });
 };
+// inject buttons on page
+function getButton() {
+  var gameBtn = document.getElementById('#buttons');
+  var lettersEl = document.createElement('ul');
+
+  for (var i = 0; i < alphabet.length; i++) {
+  lettersEl.id = ('alphabet');
+    createBtnLet = document.createElement('button');
+    createBtnLet.id = 'letter';
+    createBtnLet.textContent = alphabet[i];
+    lettersEl.appendChild(createBtnLet);
+    alphaList.appendChild(lettersEl);
+  }
+
+}
 
 getRandomWord();
 getHappyGif();
 getSadGif();
+
