@@ -31,6 +31,7 @@ var wordEl = document.querySelector("#word");
 var definitionEl = document.querySelector("#definition");
 var playArea = document.querySelector("#playarea");
 var alphaList = document.getElementById("alphabet-list");
+var gifContainerEl = document.querySelector("#gif");
 
 // begin quiz
 document.getElementById("begin-game").addEventListener("click", function () {
@@ -101,6 +102,7 @@ var getHappyGif = function () {
     .then(function (response) {
       response.json().then(function (data) {
         console.log(data);
+        displayHappyGif(data);
       });
     })
     .catch(function (error) {
@@ -120,11 +122,32 @@ var getSadGif = function () {
     .then(function (response) {
       response.json().then(function (data) {
         console.log(data);
+        displaySadGif(data);
       });
     })
     .catch(function (error) {
       alert("Unable to connect to Giphy");
     });
+};
+
+// display happy gif
+var displayHappyGif = function (data) {
+  var gif = data.data[0].images.original.url;
+
+  // create element for gif
+  var gifEl = document.createElement("img");
+  gifEl.setAttribute("src", gif);
+  gifContainerEl.appendChild(gifEl);
+};
+
+// display sad gif
+var displaySadGif = function (data) {
+  var gif = data.data[0].images.original.url;
+
+  // create element for gif
+  var gifEl = document.createElement("img");
+  gifEl.setAttribute("src", gif);
+  gifContainerEl.appendChild(gifEl);
 };
 
 // inject buttons on page
@@ -147,7 +170,7 @@ function getButton() {
   });
 }
 
-//
+// end game if win or lose
 
 // display gif
 var displayGif = function () {};
