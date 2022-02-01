@@ -82,6 +82,11 @@ var getSadGif = function () {
     });
 };
 
+//
+
+// display gif
+var displayGif = function () {};
+
 getRandomWord();
 getHappyGif();
 getSadGif();
