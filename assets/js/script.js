@@ -97,7 +97,6 @@ function getButton() {
     lettersEl.appendChild(createBtnLet);
     alphaList.appendChild(lettersEl);
   }
-
 }
 
 getRandomWord();
