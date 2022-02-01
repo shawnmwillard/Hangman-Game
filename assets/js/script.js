@@ -56,7 +56,7 @@ var getRandomWord = function () {
 
 // display word and definition
 var displayWord = function (data) {
-  var word = data[0].word;
+  word = data[0].word;
   var definition = data[0].definition;
 
   wordEl.textContent = word;
@@ -74,7 +74,7 @@ var wordSpaces = function (word) {
     var letterEl = document.createElement("li");
     letterEl.classList.add("correct-letter");
     letterEl.textContent = "_";
-    $(letterEl).attr("value", word[i]);
+    $(letterEl).attr("value", word[i].toLowerCase())
     wordEl.appendChild(letterEl);
     playArea.appendChild(wordEl);
   }
@@ -82,10 +82,14 @@ var wordSpaces = function (word) {
 
 // input guess array function
 function populateWord(guess) {
-  for (var i = 0; i < word.length; i++) {
-    if (guess === word[i]) {
-      $(`[value=${guess}]`).text(guess);
-    }
+  const wordArray = word.toLowerCase().split("");
+  console.log(guess);
+  console.log(wordArray);
+  for (var i = 0; i < wordArray.length; i++) {
+    if (guess === wordArray[i]){
+      console.log("letter-exists")
+      $(`[value=${guess}]`).text(guess)
+    } 
   }
 }
 
@@ -133,18 +137,21 @@ function getButton() {
   var lettersEl = document.createElement("ul");
 
   for (var i = 0; i < alphabet.length; i++) {
-    lettersEl.id = "alphabet";
-    createBtnLet = document.createElement("button");
-    createBtnLet.id = "letter";
+  lettersEl.id = ('alphabet');
+    createBtnLet = document.createElement('button');
+    createBtnLet.id = 'letter';
     createBtnLet.classList.add("guess");
+    createBtnLet.setAttribute("value", alphabet[i])
     createBtnLet.textContent = alphabet[i];
     lettersEl.appendChild(createBtnLet);
     alphaList.appendChild(lettersEl);
   }
-  $(".guess").on("click", function (event) {
-    populateWord(this.textContent);
-    console.log(this);
-  });
+$(".guess").on("click", function(event){
+  console.log(this.value)
+  populateWord(this.value)
+  console.log(this);
+  
+})
 }
 
 //
