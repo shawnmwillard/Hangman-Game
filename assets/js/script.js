@@ -5,6 +5,7 @@ var definitionEl = document.querySelector("#definition");
 var playArea = document.querySelector("#playarea");
 var alphaList = document.getElementById("alphabet-list");
 var word;
+var numGuesses = 7;
 
 // fetch random word and definition
 var getRandomWord = function () {
@@ -57,7 +58,10 @@ function populateWord(guess) {
     if (guess === wordArray[i]){
       console.log("letter-exists")
       $(`[value=${guess}]`).text(guess)
-    } 
+    } else {
+      numGuesses--;
+      
+    }
   }
 } 
 
