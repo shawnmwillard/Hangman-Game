@@ -1,10 +1,42 @@
 // insert variables for alphabet
-var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's','t', 'u', 'v', 'w', 'x', 'y', 'z'];
+var alphabet = [
+  "a",
+  "b",
+  "c",
+  "d",
+  "e",
+  "f",
+  "g",
+  "h",
+  "i",
+  "j",
+  "k",
+  "l",
+  "m",
+  "n",
+  "o",
+  "p",
+  "q",
+  "r",
+  "s",
+  "t",
+  "u",
+  "v",
+  "w",
+  "x",
+  "y",
+  "z",
+];
 var wordEl = document.querySelector("#word");
 var definitionEl = document.querySelector("#definition");
 var playArea = document.querySelector("#playarea");
 var alphaList = document.getElementById("alphabet-list");
 
+// begin quiz
+document.getElementById("begin-game").addEventListener("click", function () {
+  getRandomWord();
+  getButton();
+});
 
 // fetch random word and definition
 var getRandomWord = function () {
@@ -42,24 +74,20 @@ var wordSpaces = function (word) {
     var letterEl = document.createElement("li");
     letterEl.classList.add("correct-letter");
     letterEl.textContent = "_";
-    $(letterEl).attr("value", word[i])
+    $(letterEl).attr("value", word[i]);
     wordEl.appendChild(letterEl);
     playArea.appendChild(wordEl);
   }
-
 };
+
 // input guess array function
 function populateWord(guess) {
   for (var i = 0; i < word.length; i++) {
-    if (guess === word[i]){
-      $(`[value=${guess}]`).text(guess)
-    } 
+    if (guess === word[i]) {
+      $(`[value=${guess}]`).text(guess);
+    }
   }
-} 
-
-
-
-
+}
 
 // fetch happy gif
 var getHappyGif = function () {
@@ -98,34 +126,33 @@ var getSadGif = function () {
       alert("Unable to connect to Giphy");
     });
 };
+
 // inject buttons on page
 function getButton() {
-  var gameBtn = document.getElementById('#buttons');
-  var lettersEl = document.createElement('ul');
+  var gameBtn = document.getElementById("#buttons");
+  var lettersEl = document.createElement("ul");
 
   for (var i = 0; i < alphabet.length; i++) {
-  lettersEl.id = ('alphabet');
-    createBtnLet = document.createElement('button');
-    createBtnLet.id = 'letter';
-    createBtnLet.classList.add("guess")
+    lettersEl.id = "alphabet";
+    createBtnLet = document.createElement("button");
+    createBtnLet.id = "letter";
+    createBtnLet.classList.add("guess");
     createBtnLet.textContent = alphabet[i];
     lettersEl.appendChild(createBtnLet);
     alphaList.appendChild(lettersEl);
   }
-$(".guess").on("click", function(event){
-  populateWord(this.textContent)
-  console.log(this);
-  
-})
+  $(".guess").on("click", function (event) {
+    populateWord(this.textContent);
+    console.log(this);
+  });
 }
-
 
 //
 
 // display gif
 var displayGif = function () {};
 
-getRandomWord();
+// getRandomWord();
 getHappyGif();
 getSadGif();
-getButton();
+// getButton();
