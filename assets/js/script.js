@@ -27,6 +27,7 @@ var alphabet = [
   "y",
   "z",
 ];
+
 var wordEl = document.querySelector("#word");
 var definitionEl = document.querySelector("#definition");
 var playArea = document.querySelector("#playarea");
