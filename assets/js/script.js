@@ -61,7 +61,9 @@ var displayWord = function (data) {
   var definition = data[0].definition;
 
   wordEl.textContent = word;
+  wordEl.id = "hidden-word";
   definitionEl.textContent = "Definition: " + definition;
+  definitionEl.id = "definition";
 
   wordSpaces(word);
 };
@@ -70,12 +72,14 @@ var displayWord = function (data) {
 var wordSpaces = function (word) {
   console.log(word.length);
   var wordEl = document.createElement("ul");
+  wordEl.id = "word-letter-spaces";
 
   for (var i = 0; i < word.length; i++) {
     var letterEl = document.createElement("li");
+    letterEl.id = "letter-space";
     letterEl.classList.add("correct-letter");
     letterEl.textContent = "_";
-    $(letterEl).attr("value", word[i].toLowerCase())
+    $(letterEl).attr("value", word[i].toLowerCase());
     wordEl.appendChild(letterEl);
     playArea.appendChild(wordEl);
   }
@@ -87,10 +91,10 @@ function populateWord(guess) {
   console.log(guess);
   console.log(wordArray);
   for (var i = 0; i < wordArray.length; i++) {
-    if (guess === wordArray[i]){
-      console.log("letter-exists")
-      $(`[value=${guess}]`).text(guess)
-    } 
+    if (guess === wordArray[i]) {
+      console.log("letter-exists");
+      $(`[value=${guess}]`).text(guess);
+    }
   }
 }
 
@@ -160,21 +164,20 @@ function getButton() {
   var lettersEl = document.createElement("ul");
 
   for (var i = 0; i < alphabet.length; i++) {
-  lettersEl.id = ('alphabet');
-    createBtnLet = document.createElement('button');
-    createBtnLet.id = 'letter';
+    lettersEl.id = "alphabet";
+    createBtnLet = document.createElement("button");
+    createBtnLet.id = "letter";
     createBtnLet.classList.add("guess");
-    createBtnLet.setAttribute("value", alphabet[i])
+    createBtnLet.setAttribute("value", alphabet[i]);
     createBtnLet.textContent = alphabet[i];
     lettersEl.appendChild(createBtnLet);
     alphaList.appendChild(lettersEl);
   }
-$(".guess").on("click", function(event){
-  console.log(this.value)
-  populateWord(this.value)
-  console.log(this);
-  
-})
+  $(".guess").on("click", function (event) {
+    console.log(this.value);
+    populateWord(this.value);
+    console.log(this);
+  });
 }
 
 // end game if win or lose
