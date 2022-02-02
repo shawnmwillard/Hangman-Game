@@ -8,32 +8,36 @@
     <title>Hangman</title>
   </head>
   <body>
-    <div>
-      <h1>Hangman</h1>
-    </div>
-    <div>
-      <p class="hide">
-        This is a game of Hangman. Players will be given a randomly generated
-        word. The player will be given 7 chances to guess the correct letter
-        from the letter buttons below the word box. Each correct letter will be
-        placed on the screen, each wrong letter the player will be given a red
-        X. If the player guesses the word correctly they will be given another
-        word. If the player receives 7 red X's in a row the game is over and the
-        player will be given a final score to be logged.
-      </p>
-    </div>
-    <div>
-      <button id="begin-game">Play</button>
-    </div>
-    <div id="playarea"></div>
-    <div>
-      <p class="hide" id="word"></p>
-    </div>
-    <div>
-      <p id="definition"></p>
-    </div>
-    <div id="alphabet-list"></div>
-    <div id="gif"></div>
+    <header>
+      <div>
+        <h1>Hangman</h1>
+      </div>
+      <div>
+        <p class="hide">
+          This is a game of Hangman. Players will be given a randomly generated
+          word. The player will be given 7 chances to guess the correct letter
+          from the letter buttons below the word box. Each correct letter will
+          be placed on the screen, each wrong letter the player will be given a
+          red X. If the player guesses the word correctly they will be given
+          another word. If the player receives 7 red X's in a row the game is
+          over and the player will be given a final score to be logged.
+        </p>
+      </div>
+    </header>
+    <main>
+      <div>
+        <button id="begin-game">Play</button>
+      </div>
+      <div id="playarea"></div>
+      <div>
+        <p class="hide" id="word"></p>
+      </div>
+      <div>
+        <p id="definition"></p>
+      </div>
+      <div id="alphabet-list"></div>
+      <div id="gif"></div>
+    </main>
 
     <link
       rel="stylesheet"
