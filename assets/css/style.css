@@ -6,6 +6,7 @@
 h1 {
     text-align: center;
     padding-top: 50px;
+    padding-bottom: 50px;
 }
 
 ul {
@@ -36,10 +37,7 @@ p {
     width: 100%;
 }
 
-.btn {
-    font-size: 20;
-}
-
-.letter-spaces {
-    text-align: center;
+/* Hides the answer */
+#word {
+    display: none;
 }
