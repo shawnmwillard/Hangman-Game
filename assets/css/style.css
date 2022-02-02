@@ -1,7 +1,45 @@
 * {
     box-sizing: border-box;
+    font-family:'Courier New', Courier, monospace;
 }
 
 h1 {
+    text-align: center;
+    padding-top: 50px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+ul li {
+    display: inline-block;
+    margin: 30px;
+}
+
+p {
+    text-align: center;
+    font-size: 1.5em;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.hide {
+    font-size: 1.2em;
+}
+
+#buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 100%;
+}
+
+.btn {
+    font-size: 20;
+}
+
+.letter-spaces {
     text-align: center;
 }

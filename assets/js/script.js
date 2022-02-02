@@ -62,7 +62,8 @@ var wordSpaces = function (word) {
   for (var i = 0; i < word.length; i++) {
     var letterEl = document.createElement("li");
     letterEl.id = "correct-letter";
-    letterEl.textContent = "_";
+    letterEl.textContent = "__";
+    letterEl.classList.add("letter-spaces");
 
     wordEl.appendChild(letterEl);
     playArea.appendChild(wordEl);
