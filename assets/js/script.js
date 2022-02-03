@@ -90,20 +90,19 @@ var wordSpaces = function (word) {
   }
 };
 
-
 function checkIfCorrect() {
-  var answers = document.getElementsByClassName("correct-letter")
-  let correctAnswers = 0
-  console.log(answers)
+  var answers = document.getElementsByClassName("correct-letter");
+  let correctAnswers = 0;
+  console.log(answers);
   for (let i = 0; i < answers.length; i++) {
     if (answers[i].innerText !== "_") {
-      correctAnswers++
+      correctAnswers++;
     }
   }
 
   if (correctAnswers === word.length) {
-    alert("you won")
-  restartGame();
+    alert("you won");
+    restartGame();
   }
 }
 // input guess array function
@@ -179,18 +178,12 @@ var displaySadGif = function (data) {
   gifContainerEl.appendChild(gifEl);
 };
 
-<<<<<<< HEAD
 // inject buttons on page
 let guessCount = 0;
 function getButton() {
   var gameBtn = document.getElementById("#buttons");
   var lettersEl = document.createElement("ul");
 
-
-
-
-=======
->>>>>>> 411b9da7c4698b8d59289d1ccace609647ca0527
   for (var i = 0; i < alphabet.length; i++) {
     lettersEl.id = "alphabet";
     createBtnLet = document.createElement("button");
@@ -201,7 +194,8 @@ function getButton() {
     lettersEl.appendChild(createBtnLet);
     alphaList.appendChild(lettersEl);
   }
-
+}
+/*
   $(".guess").on("click", function (event) {
     console.log(this.value);
     populateWord(this.value);
@@ -213,19 +207,19 @@ function getButton() {
       restartGame()
     }
   });
-
+  */
+/*
 function restartGame() {
 
   window.location.reload()
 }
-
+*/
 // end game if win or lose
 // Player gets 10 guesses. if player guesses right, move on to next word. If guess wrong 10 times, end game
-// var letter = 
+// var letter =
 // display gif
 var displayGif = function () {};
 
 // getRandomWord();
 getHappyGif();
 getSadGif();
-// getButton();
