@@ -37,6 +37,8 @@ var gifContainerEl = document.querySelector("#gif");
 document.getElementById("begin-game").addEventListener("click", function () {
   getRandomWord();
   getButton();
+  document.getElementById("instructions").style.display = "none";
+  document.getElementById("begin-game").style.display = "none";
 });
 
 // fetch random word and definition
