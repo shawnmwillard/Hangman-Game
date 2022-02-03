@@ -1,9 +1,13 @@
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
+    font-family:'Courier New', Courier, monospace;
 }
 
 h1 {
-  text-align: center;
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    box-sizing: border-box;
 }
 
 #word-letter-spaces {
@@ -26,13 +30,6 @@ h1 {
   text-align: center;
 }
 
-#alphabet {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin: 5px;
-}
-
 #letter {
   background-color: black;
   color: white;
@@ -40,4 +37,37 @@ h1 {
   width: 100px;
   margin: 5px;
   border-radius: 5px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+ul li {
+    display: inline-block;
+    margin: 30px;
+}
+
+p {
+    text-align: center;
+    font-size: 1.5em;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.hide {
+    font-size: 1.2em;
+}
+
+#buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 100%;
+}
+
+/* Hides the answer */
+#word {
+    display: none;
 }

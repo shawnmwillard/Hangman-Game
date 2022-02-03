@@ -77,6 +77,10 @@ var wordSpaces = function (word) {
 
   for (var i = 0; i < word.length; i++) {
     var letterEl = document.createElement("li");
+    letterEl.id = "correct-letter";
+    letterEl.textContent = "__";
+    letterEl.classList.add("letter-spaces");
+
     letterEl.id = "letter-space";
     letterEl.classList.add("correct-letter");
     letterEl.textContent = "_";
@@ -159,11 +163,6 @@ var displaySadGif = function (data) {
   gifContainerEl.appendChild(gifEl);
 };
 
-// inject buttons on page
-function getButton() {
-  var gameBtn = document.getElementById("#buttons");
-  var lettersEl = document.createElement("ul");
-
   for (var i = 0; i < alphabet.length; i++) {
     lettersEl.id = "alphabet";
     createBtnLet = document.createElement("button");
@@ -179,7 +178,6 @@ function getButton() {
     populateWord(this.value);
     console.log(this);
   });
-}
 
 // end game if win or lose
 
