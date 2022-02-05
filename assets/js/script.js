@@ -32,6 +32,14 @@ var definitionEl = document.querySelector("#definition");
 var playArea = document.querySelector("#playarea");
 var alphaList = document.getElementById("alphabet-list");
 var gifContainerEl = document.querySelector("#gif");
+var guessesRemaining = 7;
+var guessNum = document.querySelector('.counter-display');
+
+function displayGuesses() {
+  guessNum.innerHTML = "Guesses remaining: " +  guessesRemaining;
+}
+
+displayGuesses();
 
 // begin quiz and hide instructions
 document.getElementById("begin-game").addEventListener("click", function () {
@@ -59,7 +67,7 @@ var getRandomWord = function () {
 
 // display word and definition
 var displayWord = function (data) {
-  word = "data[0].word";
+  word = data[0].word;
   var definition = data[0].definition;
 
   wordEl.textContent = word;
