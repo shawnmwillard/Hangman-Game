@@ -33,7 +33,7 @@ var playArea = document.querySelector("#playarea");
 var alphaList = document.getElementById("alphabet-list");
 var gifContainerEl = document.querySelector("#gif");
 
-// begin quiz
+// begin quiz and hide instructions
 document.getElementById("begin-game").addEventListener("click", function () {
   getRandomWord();
   getButton();
@@ -59,7 +59,7 @@ var getRandomWord = function () {
 
 // display word and definition
 var displayWord = function (data) {
-  word = data[0].word;
+  word = "data[0].word";
   var definition = data[0].definition;
 
   wordEl.textContent = word;
@@ -67,8 +67,16 @@ var displayWord = function (data) {
   definitionEl.textContent = "Definition: " + definition;
   definitionEl.id = "definition";
 
+  wordRegex();
   wordSpaces(word);
 };
+
+// pattern matching to ensure the chosen word does not symbols, letters outside of the English alphabet, numbers, etc.
+var wordRegex = function () {
+ if  (console.log(/[A-Za-z]{1,*}/.test(wordEl.textContent))) {
+      displayWord();
+  };
+}
 
 // display blank spaces for word
 var wordSpaces = function (word) {
