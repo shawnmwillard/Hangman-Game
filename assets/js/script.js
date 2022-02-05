@@ -103,6 +103,8 @@ var wordSpaces = function (word) {
   }
 };
 
+document.getElementById('letter').click();
+
 // input guess array function
 function populateWord(guess) {
   const wordArray = word.toLowerCase().split("");
@@ -112,6 +114,13 @@ function populateWord(guess) {
     if (guess === wordArray[i]) {
       console.log("letter-exists");
       $(`[value=${guess}]`).text(guess);
+    }
+  }
+  if (word.indexOf(guess) == -1) {
+    guessesRemaining -= 1;
+    displayGuesses();
+    if (guessesRemaining == 0) {
+      alert("Game Over!");
     }
   }
 }
