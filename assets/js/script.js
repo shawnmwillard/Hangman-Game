@@ -36,7 +36,7 @@ var guessesRemaining = 7;
 var guessNum = document.querySelector('.counter-display');
 
 function displayGuesses() {
-  guessNum.innerHTML = "Guesses remaining: " +  guessesRemaining;
+  guessNum.innerHTML = "Guesses remaining: " + guessesRemaining;
 }
 
 displayGuesses();
@@ -81,8 +81,8 @@ var displayWord = function (data) {
 
 // pattern matching to ensure the chosen word does not symbols, letters outside of the English alphabet, numbers, etc.
 var wordRegex = function () {
- if  (console.log(/[A-Za-z]{1,*}/.test(wordEl.textContent))) {
-      displayWord();
+  if (console.log(/[A-Za-z]{1,*}/.test(wordEl.textContent))) {
+    displayWord();
   };
 }
 
@@ -103,8 +103,6 @@ var wordSpaces = function (word) {
   }
 };
 
-document.getElementById('letter').click();
-
 // input guess array function
 function populateWord(guess) {
   const wordArray = word.toLowerCase().split("");
@@ -120,7 +118,24 @@ function populateWord(guess) {
     guessesRemaining -= 1;
     displayGuesses();
     if (guessesRemaining == 0) {
-      alert("Game Over!");
+      alert("Game Over! Your Score Is:" + "");
+      
+      // When guessRemaining == 0, end game.
+
+      // Objective: Track score & store it in local storage
+      
+      // Prompt: "Enter Initials to Submit Score"
+      let player = prompt("Enter your initials to sumbit your score!", "");
+      if (prompt = null) {
+        validatePrompt();
+        var input = document.getElementById("saveServer");
+        localStorage.setItem("server", input.val());
+      }
+      alert("Let's Play Again!");
+      document.location.reload();
+      clearInterval(interval);
+      // When Initials entered, users clicks "OK" to save score.
+      // If left blank, Alert: "You must submit initials to save score"
     }
   }
 }
@@ -210,9 +225,9 @@ function getButton() {
 // end game if win or lose
 
 // display gif
-var displayGif = function () {};
+var displayGif = function () { };
 
 // getRandomWord();
-getHappyGif();
-getSadGif();
-// getButton();
+//getHappyGif();
+//getSadGif();
+//getButton();
